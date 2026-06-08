@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 4%;
+    --foreground: 0 0% 100%;
+    --card: 220 20% 6%;
+    --card-foreground: 0 0% 100%;
+    --popover: 220 20% 6%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 24 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 265 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 10% 15%;
+    --muted-foreground: 220 5% 60%;
+    --accent: 24 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 10% 20%;
+    --input: 220 10% 20%;
+    --ring: 24 100% 50%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+  
+  body {
+    @apply bg-[#0a0c10] text-white antialiased;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer components {
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #ff6600, #6a00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-orange {
+    box-shadow: 0 0 20px rgba(255, 102, 0, 0.3), 0 0 40px rgba(255, 102, 0, 0.1);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(106, 0, 255, 0.3), 0 0 40px rgba(106, 0, 255, 0.1);
+  }
+
+  .border-glow {
+    border: 1px solid rgba(255, 102, 0, 0.3);
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ff6600;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.2);
+    }
+  }
+
+  .cyber-button {
+    @apply relative px-8 py-4 bg-[#ff6600] text-white font-bold text-sm uppercase tracking-wider;
+    transition: all 0s;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  }
+
+  .cyber-button:hover {
+    @apply bg-white text-[#ff6600];
+    box-shadow: 0 0 30px rgba(255, 102, 0, 0.5);
+  }
+
+  .cyber-button:active {
+    transform: scale(0.98);
+  }
+
+  .cyber-input {
+    @apply w-full bg-transparent border-b border-[#8a8f98] text-white py-3 px-0 focus:outline-none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+  }
+
+  .cyber-input:focus {
+    border-bottom-width: 2px;
+    border-color: #ff6600;
+  }
+
+  .cyber-input::placeholder {
+    color: #8a8f98;
+  }
+
+  .card-3d {
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+  }
+
+  .terminal-panel {
+    @apply bg-[#0d1016] border border-[#1a1d26] p-4;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .scramble-text {
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.1em;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
